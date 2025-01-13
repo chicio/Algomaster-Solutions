@@ -43,7 +43,7 @@ function zeroFilledSubarray(nums: number[]): number {
             if (currentZeroCount > 0) {
                 // see https://en.wikipedia.org/wiki/Arithmetic_progression
                 let arithmeticProgression = (currentZeroCount * (currentZeroCount + 1))/2
-                numberOfSubarrays = numberOfSubarrays + (currentZeroCount * (currentZeroCount + 1))/2
+                numberOfSubarrays = numberOfSubarrays + arithmeticProgression
                 currentZeroCount = 0
             }
         }
