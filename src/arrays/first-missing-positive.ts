@@ -25,6 +25,30 @@
  * Explanation: The smallest positive integer 1 is missing.
  */
 
+// Easier not in place algorithm
+//
+// function firstMissingPositive(nums: number[]): number {
+//     let numbers = new Set<number>()
+//     let max = 0
+//
+//     for (let i  = 0; i < nums.length; i++) {
+//         let current = nums[i]
+//
+//         if (current > 0) {
+//             numbers.add(current)
+//             max = Math.max(max, current)
+//         }
+//     }
+//
+//     for(let i = 1; i < max; i++) {
+//         if (!numbers.has(i)) {
+//             return i
+//         }
+//     }
+//
+//     return max + 1
+// };
+
 function firstMissingPositive(nums: number[]): number {
     /// https://en.wikipedia.org/wiki/Cycle_sort
     for (let i = 0; i < nums.length; i++) {
