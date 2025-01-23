@@ -38,6 +38,7 @@
  *
  * Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
  */
+
 function reverseWords(s: string): string {
     const parsedArray = s
         .trim()
