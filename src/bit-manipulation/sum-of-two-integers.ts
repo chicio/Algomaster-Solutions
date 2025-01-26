@@ -21,7 +21,8 @@
  * -1000 <= a, b <= 1000
  */
 
-
+// Well, this is quite a bit of a challenge. 
+// After getting the general approach, i was getting lost in the loop with temp variables....
 function getSum(a: number, b: number): number {
     let carry = a & b
     let sum = a ^ b
