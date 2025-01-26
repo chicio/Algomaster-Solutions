@@ -33,23 +33,20 @@
  */
 
 function increasingTriplet(nums: number[]): boolean {
-    let i = Infinity
-    let j = Infinity
+    let currentI = Infinity
+    let currentJ = Infinity
 
     for (let current = 0; current < nums.length; current++) {
-        let currentI = nums[i] ?? Infinity
-        let currentK = nums[j] ?? Infinity
-
         if (nums[current] <= currentI) {
-            i = current
-        } else if (nums[current] <= currentK) {
-            j = current
+            currentI = nums[current]
+        } else if (nums[current] <= currentJ) {
+            currentJ = nums[current]
         } else {
             return true
         }
     }
 
     return false
-}
+};
 
 console.log([2,1,5,0,4,6])
