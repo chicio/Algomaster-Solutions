@@ -43,4 +43,4 @@ function singleNumber3(nums: number[]): number[] {
     ]
 }
 
-console.log(singleNumber([1, 2, 1, 3, 2, 5]))
+console.log(singleNumber3([1, 2, 1, 3, 2, 5]))
