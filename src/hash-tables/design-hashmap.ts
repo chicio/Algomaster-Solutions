@@ -95,7 +95,7 @@ class MyHashMap {
 
     private resize() {
         const newSize = this.size * 2;
-        const newBuckets = Array.from({ length: newSize }, () => []);
+        const newBuckets: [number, number][][] = Array.from({ length: newSize }, () => []);
         
         for (const bucket of this.buckets) {
             for (const [key, value] of bucket) {
