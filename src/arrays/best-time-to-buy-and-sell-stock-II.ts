@@ -39,7 +39,7 @@
  * 0 <= prices[i] <= 104
  */
 
-function maxProfit(prices: number[]): number {
+function maxProfit2(prices: number[]): number {
     let maxProfit = 0
 
     for (let i = 1; i < prices.length; i++) {
@@ -51,4 +51,4 @@ function maxProfit(prices: number[]): number {
     return maxProfit
 }
 
-console.log(maxProfit([7,1,5,3,6,4]))
+console.log(maxProfit2([7,1,5,3,6,4]))
