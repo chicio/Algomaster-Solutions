@@ -1,10 +1,7 @@
 /**
  * https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
  * Find All Anagrams in a String
- * Solved
- * Medium
- * Topics
- * Companies
+ *
  * Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
  * 
  *  
@@ -26,7 +23,7 @@
  * The substring with start index = 2 is "ab", which is an anagram of "ab".
  */
 
-function areMapsEqual(map1: Map<string, number>, map2: Map<string, number>): boolean {
+function areAnagramMapsEqual(map1: Map<string, number>, map2: Map<string, number>): boolean {
     if (map1.size !== map2.size) { 
         return false
     }
@@ -55,7 +52,7 @@ function findAnagrams(s: string, p: string): number[] {
     let arrayOfIndexes = []
 
     for (let i = p.length; i < s.length; i++) {
-        if (areMapsEqual(pLetters, sSubstringLetters)) {
+        if (areAnagramMapsEqual(pLetters, sSubstringLetters)) {
             arrayOfIndexes.push(i - p.length)
         }
 
@@ -72,7 +69,7 @@ function findAnagrams(s: string, p: string): number[] {
         sSubstringLetters.set(charToBeAdded, (sSubstringLetters.get(charToBeAdded) || 0) + 1)
     }
 
-    if (areMapsEqual(pLetters, sSubstringLetters)) {
+    if (areAnagramMapsEqual(pLetters, sSubstringLetters)) {
         arrayOfIndexes.push(s.length - p.length)
     }
 

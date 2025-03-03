@@ -77,4 +77,4 @@ function checkInclusion(s1: string, s2: string): boolean {
     return false
 };
 
-console.log(checkInclusion("eidbaooo", "ab"))
+console.log(checkInclusion("ab", "eidbaooo")) 

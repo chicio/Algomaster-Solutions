@@ -33,14 +33,14 @@ function findMaxAverage(nums: number[], k: number): number {
         sum = sum + nums[i]
     }
 
-    let maxAverage = sum / k
+    let maxSum = sum
 
     for (let i = k; i < nums.length; i++) {
         sum = sum - nums[i - k] + nums[i]
-        maxAverage = Math.max(sum / k, maxAverage)
+        maxSum = Math.max(sum, maxSum)
     }
 
-    return maxAverage
+    return maxSum / k
 };
 
 console.log(findMaxAverage([1,12,-5,-6,50,3], 4))
