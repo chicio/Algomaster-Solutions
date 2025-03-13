@@ -30,16 +30,18 @@
  */
 
 function numIdenticalPairs(nums: number[]): number {
-    const charsCount = new Map<number, number>()
+    const numbersCount = new Map<number, number>()
     let countGoodPairs = 0
 
     for (let i = 0; i < nums.length; i++) {
-        charsCount.set(nums[i], (charsCount.get(nums[i]) || 0) + 1);
-    }
+        if (numbersCount.has(nums[i])) {
+            countGoodPairs = countGoodPairs + numbersCount.get(nums[i])!
+        }
 
-    for (const value of charsCount.values()) {
-        countGoodPairs = countGoodPairs + Math.floor((value * (value - 1)) / 2)
+        numbersCount.set(nums[i], (numbersCount.get(nums[i]) || 0) + 1);
     }
 
     return countGoodPairs
 };
+
+console.log(numIdenticalPairs([1,2,3,1,1,3]))
