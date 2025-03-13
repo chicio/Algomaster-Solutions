@@ -1,4 +1,5 @@
 /**
+ * https://leetcode.com/problems/best-sightseeing-pair/
  * 1014. Best Sightseeing Pair
  * Solved
  * Medium
@@ -42,4 +43,4 @@ function maxScoreSightseeingPair(values: number[]): number {
     return bestSightseeingPair
 };
 
-console.log([5,1,8,2,6])
+console.log(maxScoreSightseeingPair([5,1,8,2,6]))
