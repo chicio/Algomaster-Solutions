@@ -59,8 +59,8 @@ function evalRPN(tokens: string[]): number {
         const operation = operations.get(next)
         
         if (operation) {
-            const y = stack.pop()
-            const x = stack.pop()
+            const y = stack.pop()!
+            const x = stack.pop()!
             stack.push(operation(x, y))
         } else {
             stack.push(Number(next))
