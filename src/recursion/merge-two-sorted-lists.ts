@@ -31,7 +31,7 @@
  * -100 <= Node.val <= 100
  * Both list1 and list2 are sorted in non-decreasing order.
  */
-import {ListNode} from "../linked-list/list-node";
+import {ListNode} from "../list-node";
 
 function mergeTwoListsRecursive(head: ListNode, list1: ListNode | null, list2: ListNode | null) {
     if (list1 === null && list2 === null) {

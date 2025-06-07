@@ -1,22 +1,22 @@
 /**
  * https://leetcode.com/problems/design-linked-list/description/
- * 
+ *
  * 707. Design Linked List
  */
 
-import { ListNode } from "./list-node";
+import { ListNode } from "../list-node";
 
 class MyLinkedList {
     private head: ListNode | null = null;
-    
+
     get(index: number): number {
         let current = this.head;
 
         for (let i = 0; i < index; i++) {
-            if (!current) { 
+            if (!current) {
                 return -1;
             }
-            
+
             current = current.next;
         }
 
@@ -62,7 +62,7 @@ class MyLinkedList {
     }
 
     deleteAtIndex(index: number): void {
-        if (!this.head) { 
+        if (!this.head) {
             return;
         }
 
