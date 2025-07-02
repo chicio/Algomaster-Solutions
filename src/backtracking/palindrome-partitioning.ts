@@ -24,7 +24,7 @@
 
 const palindromeMemoization = new Set<string>();
 
-function isPalindrome(s: string): boolean {
+function isPalindromeString(s: string): boolean {
     if (palindromeMemoization.has(s)) {
         return true
     }
@@ -55,7 +55,7 @@ function backtrackPartition(
 
     for (let i = start; i < s.length; i++) {
         let substring = s.substring(start, i + 1)
-        if (isPalindrome(substring)) {
+        if (isPalindromeString(substring)) {
             currentPalindromes.push(substring)
             backtrackPartition(results, currentPalindromes, s, i + 1)
             currentPalindromes.pop()

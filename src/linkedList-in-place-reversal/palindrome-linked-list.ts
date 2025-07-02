@@ -49,4 +49,4 @@ function isPalindrome(head: ListNode | null): boolean {
     }
 
     return stack.length === 0
-};
+}
