@@ -1,37 +1,35 @@
-export class MinHeap {
-    private readonly heap: number[] = []
+type Comparator<T> = (a: T, b: T) => number;
 
-    constructor() { }
+export class Heap<T> {
+    private readonly heap: T[] = [];
+    private readonly compare: Comparator<T>;
+
+    constructor(compare: Comparator<T>) {
+        this.compare = compare;
+    }
 
     size(): number {
         return this.heap.length;
     }
 
-    peek(): number | null {
-        return this.heap.length > 0
-            ? this.heap[0]
-            : null;
+    peek(): T | null {
+        return this.heap.length > 0 ? this.heap[0] : null;
     }
 
-    insert(value: number): void {
+    insert(value: T): void {
         this.heap.push(value);
         this.bubbleUp();
     }
 
-    extractMin(): number | null {
-        if (this.heap.length === 0) {
-            return null;
-        }
+    extract(): T | null {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop()!;
 
-        if (this.heap.length === 1) {
-            return this.heap.pop()!;
-        }
-
-        const min = this.heap[0];
+        const top = this.heap[0];
         this.heap[0] = this.heap.pop()!;
         this.bubbleDown();
 
-        return min;
+        return top;
     }
 
     private bubbleUp(): void {
@@ -39,10 +37,7 @@ export class MinHeap {
 
         while (index > 0) {
             const parentIndex = Math.floor((index - 1) / 2);
-
-            if (this.heap[index] >= this.heap[parentIndex]) {
-                break;
-            }
+            if (this.compare(this.heap[index], this.heap[parentIndex]) >= 0) break;
 
             [this.heap[index], this.heap[parentIndex]] = [this.heap[parentIndex], this.heap[index]];
             index = parentIndex;
@@ -53,101 +48,22 @@ export class MinHeap {
         let index = 0;
 
         while (true) {
-            const leftChildIndex = 2 * index + 1;
-            const rightChildIndex = 2 * index + 2;
+            const left = 2 * index + 1;
+            const right = 2 * index + 2;
             let smallest = index;
 
-            if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] < this.heap[smallest]) {
-                smallest = leftChildIndex;
+            if (left < this.heap.length && this.compare(this.heap[left], this.heap[smallest]) < 0) {
+                smallest = left;
             }
 
-            if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] < this.heap[smallest]) {
-                smallest = rightChildIndex;
+            if (right < this.heap.length && this.compare(this.heap[right], this.heap[smallest]) < 0) {
+                smallest = right;
             }
 
-            if (smallest === index) {
-                break;
-            }
+            if (smallest === index) break;
 
             [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
             index = smallest;
-        }
-    }
-}
-
-export class MaxHeap {
-    private readonly heap: number[] = []
-
-    constructor() { }
-
-    size(): number {
-        return this.heap.length;
-    }
-
-    peek(): number | null {
-        return this.heap.length > 0
-            ? this.heap[0]
-            : null;
-    }
-
-    insert(value: number): void {
-        this.heap.push(value);
-        this.bubbleUp();
-    }
-
-    extractMax(): number | null {
-        if (this.heap.length === 0) {
-            return null;
-        }
-
-        if (this.heap.length === 1) {
-            return this.heap.pop()!;
-        }
-
-        const max = this.heap[0];
-        this.heap[0] = this.heap.pop()!;
-        this.bubbleDown();
-
-        return max;
-    }
-
-    private bubbleUp(): void {
-        let index = this.heap.length - 1;
-
-        while (index > 0) {
-            const parentIndex = Math.floor((index - 1) / 2);
-
-            if (this.heap[index] <= this.heap[parentIndex]) {
-                break;
-            }
-
-            [this.heap[index], this.heap[parentIndex]] = [this.heap[parentIndex], this.heap[index]];
-            index = parentIndex;
-        }
-    }
-
-    private bubbleDown(): void {
-        let index = 0;
-
-        while (true) {
-            const leftChildIndex = 2 * index + 1;
-            const rightChildIndex = 2 * index + 2;
-            let largest = index;
-
-            if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] > this.heap[largest]) {
-                largest = leftChildIndex;
-            }
-
-            if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] > this.heap[largest]) {
-                largest = rightChildIndex;
-            }
-
-            if (largest === index) {
-                break;
-            }
-
-            [this.heap[index], this.heap[largest]] = [this.heap[largest], this.heap[index]];
-            index = largest;
         }
     }
 }

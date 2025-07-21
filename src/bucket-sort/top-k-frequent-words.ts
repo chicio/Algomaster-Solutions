@@ -55,8 +55,6 @@ function topKFrequent(words: string[], k: number): string[] {
         .from(bucketsOfFrequencies.keys())
         .sort((a, b) => b - a)
 
-    console.log(sortedFrequencies)
-
     for (const frequency of sortedFrequencies) {
         let bucket = bucketsOfFrequencies.get(frequency)!
         result.push(...bucket.sort())

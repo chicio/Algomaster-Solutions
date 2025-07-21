@@ -25,18 +25,18 @@
  * 1 <= k <= nums.length <= 105
  * -104 <= nums[i] <= 104
  */
+import {Heap} from "../heap";
 
 /// Solution with min heap
-import {MinHeap} from "../heap";
 
 function findKthLargest(nums: number[], k: number): number {
-    let heap = new MinHeap()
+    let heap = new Heap<number>((a, b) => a - b)
 
     for (const num of nums) {
         heap.insert(num)
 
         if(heap.size() > k) {
-            heap.extractMin()
+            heap.extract()
         }
     }
 
