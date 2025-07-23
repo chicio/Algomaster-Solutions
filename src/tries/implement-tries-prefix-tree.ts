@@ -36,12 +36,7 @@
  * word and prefix consist only of lowercase English letters.
  * At most 3 * 104 calls in total will be made to insert, search, and startsWith.
  */
-class TrieNode {
-    constructor(
-        public children: Map<string, TrieNode> = new Map<string, TrieNode>(),
-        public isEndOfWord: boolean = false
-    ) { }
-}
+import {TrieNode} from "../trie";
 
 class Trie {
     private root: TrieNode = new TrieNode()
