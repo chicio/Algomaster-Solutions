@@ -6,7 +6,7 @@ class TrieNode {
     ) { }
 }
 
-class Trie {
+class TrieSuggester {
     private root = new TrieNode()
 
     insert(word: string): void {
@@ -49,7 +49,7 @@ class Trie {
 }
 
 function suggestedProducts(products: string[], searchWord: string): string[][] {
-    let suggester = new Trie()
+    let suggester = new TrieSuggester()
     products.sort();
     products.map(it => suggester.insert(it))
 
