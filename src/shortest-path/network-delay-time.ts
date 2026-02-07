@@ -47,7 +47,7 @@ function createGraph(times: number[][], n: number) {
 }
 
 function networkDelayTime(times: number[][], n: number, k: number): number {
-    const graph: Edge[][] = createGraph(times, n)
+    const graph: Edge[][] = createGraph(times, n);
     const distances = dijkstra(n, graph, k - 1); // -1, nodes are labelled from 1 to n
     const maxDist = Math.max(...distances);
 
