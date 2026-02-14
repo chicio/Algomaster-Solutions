@@ -8,7 +8,9 @@ export function bellmanFord(n: number, graph: Edge[][], src: number, maxStops: n
         const temp = dist.slice();
 
         for (let u = 0; u < n; u++) {
-            if (dist[u] === Infinity) continue;
+            if (dist[u] === Infinity) {
+                continue;
+            } 
 
             for (const { node: v, cost: w } of graph[u]) {
                 if (dist[u] + w < temp[v]) {
