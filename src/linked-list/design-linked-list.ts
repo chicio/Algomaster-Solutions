@@ -1,6 +1,5 @@
 /**
  * https://leetcode.com/problems/design-linked-list/description/
- *
  * 707. Design Linked List
  */
 
