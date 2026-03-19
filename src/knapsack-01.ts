@@ -15,7 +15,6 @@ function knapsack01(
         const value = values[i - 1];
 
         for (let w = 0; w <= capacity; w++) {
-
             if (weight > w) {
                 dp[i][w] = dp[i - 1][w];
             } else {
