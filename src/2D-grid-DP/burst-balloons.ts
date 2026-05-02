@@ -3,6 +3,8 @@
  * 312. Burst Balloons
  */
 
+/// "If you see this in an interview, they don't want to hire you...""
+/// https://www.youtube.com/watch?v=VFskby7lUbw
 function maxCoins(nums: number[]): number {
     const n = nums.length
     const arr = [1, ...nums, 1]
